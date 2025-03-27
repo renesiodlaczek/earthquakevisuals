@@ -1,5 +1,19 @@
 
-
+#' Timeline label
+#' 
+#' This geom labels the earthquakes that have been visualized by the
+#' [geom_timeline()] function with the location name.
+#' 
+#' @inheritParams geom_point
+#' @param xmin A date value to filter the data from the given date.
+#' @param xmax A date value to filter the data up to the given date.
+#' @param n_max Maximum amount of earthquakes that will be labelled. The
+#' earthquakes with the greatest size value are labelled first. 
+#'
+#' @returns A ggplot graph.
+#' @export
+#'
+#' @examples
 geom_timeline_label <- function(mapping = NULL, data = NULL,
                           stat = "identity", position = "identity",
                           xmin = as.Date("0001-01-01"), xmax = as.Date("9999-01-01"),
@@ -93,7 +107,5 @@ GeomTimelineLabel <- ggplot2::ggproto("GeomTimelineLabel", ggplot2::Geom,
                                  
                                  draw_key = ggplot2::draw_key_point
                                  
-                                 
-                                 
-)
+                                 )
 

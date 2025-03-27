@@ -1,7 +1,15 @@
 
-
-
-    
+#' Earthquake map
+#' 
+#' This function creates a leaflet map visualizing the earthquake locations.
+#'
+#' @param x A dataframe containing the cleaned NOAA earthquake dataset.
+#' @param annot_col A column name of the given dataframe to be used as label text.
+#'
+#' @returns A leaflet map.
+#' @export
+#'
+#' @examples
 eq_map <- function(x, annot_col) {
     
     popup_text <- as.character(x[[annot_col]])

@@ -1,6 +1,16 @@
 
-
-
+#' Earthquake label creation
+#' 
+#' This function creates a HTML-formatted earthquake description containing the
+#' location, magnitude and death count. It was built to serve as the label text
+#' for the function [eq_map()].
+#'
+#' @param x A dataframe containing the cleaned NOAA earthquake dataset.
+#'
+#' @returns A character vector
+#' @export
+#'
+#' @examples
 eq_create_label <- function(x) {
     
     # ensure all variables are characters

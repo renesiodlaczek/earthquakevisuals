@@ -1,11 +1,10 @@
 Package: earthquakevisuals
-Title: What the Package Does (One Line, Title Case)
+Title: Custom visualizations for the NOAA earthquake dataset
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("René", "Siodlaczek", , "r.siodlaczek@web.de", role = c("aut", "cre"))
+Description: This package offers several functions to preprocess NOAA earthquake data visualize it on a timeline or on a map.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
