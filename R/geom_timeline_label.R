@@ -1,5 +1,4 @@
-# https://github.com/ByronMattingly2015/NOAAEarthquakes
-# https://github.com/tidyverse/ggplot2/blob/main/R/geom-point.R
+
 
 geom_timeline_label <- function(mapping = NULL, data = NULL,
                           stat = "identity", position = "identity",
