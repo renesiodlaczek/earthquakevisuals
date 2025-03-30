@@ -4,7 +4,7 @@
 \alias{eq_map}
 \title{Earthquake map}
 \usage{
-eq_map(x, annot_col)
+eq_map(x, annot_col = "location_name")
 }
 \arguments{
 \item{x}{A dataframe containing the cleaned NOAA earthquake dataset.}

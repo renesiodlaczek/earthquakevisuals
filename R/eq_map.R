@@ -12,10 +12,15 @@
 #' eq_map(noaa_earthquakes, "location_name")
 #' 
 #' @export
-eq_map <- function(x, annot_col) {
+eq_map <- function(x, annot_col = "location_name") {
     
+    # create the popup text vector
     popup_text <- as.character(x[[annot_col]])
-
+    
+    # remove lat/lon NAs
+    x <- x[!is.na(x$latitude) & !is.na(x$longitude), ]
+    
+    # Create the leaflet map
     x |> 
         leaflet::leaflet() |> 
         leaflet::addTiles() |> 
