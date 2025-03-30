@@ -2,7 +2,7 @@ Package: earthquakevisuals
 Title: Custom visualizations for the NOAA earthquake dataset
 Version: 0.0.0.9000
 Authors@R: 
-    person("René", "Siodlaczek", "r.siodlaczek@web.de", role = c("aut", "cre"))
+    person("Rene", "Siodlaczek", , "r.siodlaczek@web.de", role = c("aut", "cre"))
 Description: This package offers several functions to preprocess NOAA earthquake data visualize it on a timeline or on a map.
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -16,5 +16,8 @@ Depends:
     R (>= 3.5)
 LazyData: true
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+VignetteBuilder: knitr

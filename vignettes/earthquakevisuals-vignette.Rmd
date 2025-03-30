@@ -1,0 +1,92 @@
+---
+title: "earthquakevisuals-vignette"
+output: rmarkdown::html_vignette
+fig_width: 20
+fig_height: 13
+vignette: >
+  %\VignetteIndexEntry{earthquakevisuals-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(earthquakevisuals)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+```
+
+
+
+```{r}
+data <- noaa_earthquakes |> 
+    eq_clean_data() |>
+    eq_location_clean()
+```
+
+
+```{r}
+data |> 
+    dplyr::filter(country %in% c("ALASKA", "CHINA", "JAPAN")) |> 
+    ggplot(aes(date)) +
+    geom_timeline(xmin = as.Date("2000-01-01"), 
+                  xmax = as.Date("2018-01-01")
+                  ) +
+    theme_classic() +
+    theme(axis.line.y = element_blank(), 
+          axis.ticks.y = element_blank(), 
+          axis.text.y = element_blank()
+          ) +
+    labs(x = "DATE", 
+         y = element_blank(), 
+         title = "NOAA Earthquakes") +
+    ylim(0.5, 2)
+```
+
+
+```{r}
+data |> 
+    dplyr::filter(country %in% c("ALASKA", "CHINA", "JAPAN")) |> 
+    ggplot(aes(date, country, size = mag, color = total_deaths)) +
+    geom_timeline(xmin = as.Date("2000-01-01"), 
+                  xmax = as.Date("2018-01-01")
+                  ) +
+    geom_timeline_label(aes(label = location_name),
+                        xmin = as.Date("2000-01-01"), 
+                        xmax = as.Date("2018-01-01"),
+                        n_max = 5
+                        ) +
+    theme_classic() +
+    theme(axis.line.y = element_blank(),
+          axis.ticks.y = element_blank(),
+          legend.position = "bottom"
+          ) +
+    scale_size_continuous(name = "Richter scale value") +
+    scale_color_continuous(name = "# deaths") +
+    labs(x = "DATE", 
+         y = element_blank(), 
+         title = "NOAA Earthquakes")
+```
+
+
+```{r}
+data |> 
+    dplyr::filter(country == "MEXICO" & lubridate::year(date) >= 2000) |> 
+    eq_map(annot_col = "date")
+```
+
+
+```{r}
+data |> 
+    dplyr::mutate(popup_text = eq_create_label(data)) |> 
+    dplyr::filter(country == "MEXICO" & lubridate::year(date) >= 2000) |> 
+    eq_map(annot_col = "popup_text")
+```
+
