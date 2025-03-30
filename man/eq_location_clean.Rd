@@ -16,3 +16,7 @@ A dataframe.
 This function extracts the country name from the location name column and
 further cleans the location name column.
 }
+\examples{
+eq_location_clean(noaa_earthquakes)
+
+}

@@ -17,3 +17,7 @@ This function creates a HTML-formatted earthquake description containing the
 location, magnitude and death count. It was built to serve as the label text
 for the function \code{\link[=eq_map]{eq_map()}}.
 }
+\examples{
+eq_create_label(noaa_earthquakes)
+ 
+}

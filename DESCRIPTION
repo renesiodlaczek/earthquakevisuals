@@ -12,3 +12,6 @@ Imports:
     ggplot2,
     leaflet,
     stringr
+Depends: 
+    R (>= 3.5)
+LazyData: true

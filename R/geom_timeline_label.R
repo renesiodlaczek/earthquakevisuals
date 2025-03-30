@@ -2,18 +2,24 @@
 #' Timeline label
 #' 
 #' This geom labels the earthquakes that have been visualized by the
-#' [geom_timeline()] function with the location name.
+#' [geom_timeline()] function, e.g. with the location name.
 #' 
-#' @inheritParams geom_point
+#' @inheritParams ggplot2::geom_point
 #' @param xmin A date value to filter the data from the given date.
 #' @param xmax A date value to filter the data up to the given date.
 #' @param n_max Maximum amount of earthquakes that will be labelled. The
 #' earthquakes with the greatest size value are labelled first. 
 #'
 #' @returns A ggplot graph.
-#' @export
 #'
 #' @examples
+#' noaa_earthquakes |> 
+#'     eq_clean_data() |> 
+#'     ggplot2::ggplot(ggplot2::aes(date)) +
+#'     geom_timeline() +
+#'     geom_timeline_label(ggplot2::aes(label = location_name))
+#'     
+#' @export 
 geom_timeline_label <- function(mapping = NULL, data = NULL,
                           stat = "identity", position = "identity",
                           xmin = as.Date("0001-01-01"), xmax = as.Date("9999-01-01"),
@@ -22,7 +28,7 @@ geom_timeline_label <- function(mapping = NULL, data = NULL,
                           na.rm = FALSE,
                           show.legend = NA,
                           inherit.aes = TRUE) {
-    layer(
+    ggplot2::layer(
         data = data,
         mapping = mapping,
         stat = stat,

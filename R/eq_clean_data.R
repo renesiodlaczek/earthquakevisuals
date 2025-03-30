@@ -1,15 +1,17 @@
 
 #' Earthquake data cleaning
 #' 
-#' This function can be used to clean the NOAA earthquake dataset. E. g. it
-#' formats the data correctly.
+#' This function can be used to create a cleaned date column in the NOAA
+#' earthquake dataset.
 #'
 #' @param x A dataframe of the NOAA earthquake dataset
 #'
 #' @returns A dataframe.
-#' @export
 #'
 #' @examples
+#' eq_clean_data(noaa_earthquakes)
+#' 
+#' @export
 eq_clean_data <- function(x) {
     x$mo <- ifelse(is.na(x$mo), 1, x$mo)
     x$dy <- ifelse(is.na(x$dy), 1, x$dy)

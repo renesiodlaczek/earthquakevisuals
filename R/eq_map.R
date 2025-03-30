@@ -7,9 +7,11 @@
 #' @param annot_col A column name of the given dataframe to be used as label text.
 #'
 #' @returns A leaflet map.
-#' @export
 #'
 #' @examples
+#' eq_map(noaa_earthquakes, "location_name")
+#' 
+#' @export
 eq_map <- function(x, annot_col) {
     
     popup_text <- as.character(x[[annot_col]])

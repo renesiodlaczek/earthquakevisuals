@@ -6,14 +6,19 @@
 #' and death count. Furthermore the user can specify a grouping by which the
 #' timeline can be split vertically into multiple timelines, e. g. by country.
 #'
-#' @inheritParams geom_point
+#' @inheritParams ggplot2::geom_point
 #' @param xmin A date value to filter the data from the given date.
 #' @param xmax A date value to filter the data up to the given date.
 #'
 #' @returns A ggplot graph.
-#' @export
 #'
 #' @examples
+#' noaa_earthquakes |> 
+#'     eq_clean_data() |> 
+#'     ggplot2::ggplot(ggplot2::aes(date)) +
+#'     geom_timeline()
+#' 
+#' @export
 geom_timeline <- function(mapping = NULL, data = NULL,
                           stat = "identity", position = "identity",
                           xmin = as.Date("0001-01-01"), xmax = as.Date("9999-01-01"),
@@ -23,7 +28,7 @@ geom_timeline <- function(mapping = NULL, data = NULL,
                           inherit.aes = TRUE) {
     
     
-    layer(
+    ggplot2::layer(
         data = data,
         mapping = mapping,
         stat = stat,

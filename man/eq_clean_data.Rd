@@ -13,6 +13,10 @@ eq_clean_data(x)
 A dataframe.
 }
 \description{
-This function can be used to clean the NOAA earthquake dataset. E. g. it
-formats the data correctly.
+This function can be used to create a cleaned date column in the NOAA
+earthquake dataset.
+}
+\examples{
+eq_clean_data(noaa_earthquakes)
+
 }

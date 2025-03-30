@@ -17,3 +17,7 @@ A leaflet map.
 \description{
 This function creates a leaflet map visualizing the earthquake locations.
 }
+\examples{
+eq_map(noaa_earthquakes, "location_name")
+
+}

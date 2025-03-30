@@ -8,9 +8,11 @@
 #' @param x A dataframe containing the cleaned NOAA earthquake dataset.
 #'
 #' @returns A character vector
-#' @export
-#'
+#' 
 #' @examples
+#' eq_create_label(noaa_earthquakes)
+#'  
+#' @export
 eq_create_label <- function(x) {
     
     # ensure all variables are characters
