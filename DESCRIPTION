@@ -11,7 +11,9 @@ RoxygenNote: 7.3.2
 Imports: 
     ggplot2,
     leaflet,
-    stringr
+    stringr,
+    dplyr,
+    lubridate
 Depends: 
     R (>= 3.5)
 LazyData: true
