@@ -48,7 +48,6 @@ geom_timeline <- function(mapping = NULL, data = NULL,
 #' @rdname ggplot2-ggproto
 #' @format NULL
 #' @usage NULL
-#' @export
 GeomTimeline <- ggplot2::ggproto("GeomTimeline", ggplot2::Geom,
                                  
                                  required_aes = c("x"),
