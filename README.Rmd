@@ -1,6 +1,6 @@
 ---
 output: github_document
-always_allow_html: true
+#always_allow_html: true
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -105,17 +105,40 @@ data |>
 
 The function `eq_map()` is useful when one wants to display the earthquakes on a map. The parameter `annot_col` steers which column is used for labelling the individual earthquakes.
 
-```{r leaflet_1}
+```{r leaflet_1.1, eval=FALSE}
 data |> 
     subset(country == "INDIA" & date >= as.Date("2000-01-01")) |>
     eq_map(annot_col = "date")
 ```
 
+```{r leaflet_1.2, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+data |> 
+    subset(country == "INDIA" & date >= as.Date("2000-01-01")) |>
+    eq_map(annot_col = "date") |> 
+    htmlwidgets::saveWidget("man/figures/leaflet_1.html", selfcontained = TRUE)
+
+webshot2::webshot("man/figures/leaflet_1.html", file = "man/figures/leaflet_1.png", cliprect = "viewport")
+```
+
+<img src="man/figures/leaflet_1.png" />
+
 To have a label with more information the function `eq_create_label()` can be used to generate a HTML formatted column with information about an earthquake's location, its magnitude and the associated number of deaths. The newly created column can serve as an input for the `eq_map()` function.
 
-```{r leaflet_2}
+```{r leaflet_2.1, eval=FALSE}
 data |> 
     transform(popup_text = eq_create_label(data)) |> 
     subset(country == "INDIA" & date >= as.Date("2000-01-01")) |> 
     eq_map(annot_col = "popup_text")
 ```
+
+```{r leaflet_2.2, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+data |> 
+    transform(popup_text = eq_create_label(data)) |> 
+    subset(country == "INDIA" & date >= as.Date("2000-01-01")) |> 
+    eq_map(annot_col = "popup_text") |> 
+    htmlwidgets::saveWidget("man/figures/leaflet_2.html", selfcontained = TRUE)
+
+webshot2::webshot("man/figures/leaflet_2.html", file = "man/figures/leaflet_2.png", cliprect = "viewport")
+```
+
+<img src="man/figures/leaflet_2.png" />
